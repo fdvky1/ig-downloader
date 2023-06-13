@@ -32,7 +32,7 @@ function download(url){
             const dec = hunter(h.split(""), u, n.split(""), t, e, r)
             const urls = dec.match(/<a href=\\"(https?:\/\/[\w\.\/\-&?=]+)/g)
             if(!urls) return reject({message: "failed to get download url, please check again your link"});
-            resolve({status: 200, result: [urls.map(v => v.replace("<a href=\\\"", ""))]})
+            resolve({status: 200, result: urls.map(v => v.replace("<a href=\\\"", ""))})
         })
     })
 }
